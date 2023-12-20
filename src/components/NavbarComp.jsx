@@ -25,7 +25,7 @@ function NavbarComp(props) {
             <Nav.Link href="#link">Browse</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <Form inline onSubmit={handleSubmit}>
+        <Form inline="true" onSubmit={handleSubmit}>
           <Row>
             <Col xs="auto">
               <Form.Control
