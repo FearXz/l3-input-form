@@ -41,14 +41,12 @@ function MyMain() {
         <CategoryComp callbackFunction={handleCategoryButton} />
       </div>
       <Container>
-        <Row className="gy-3 mb-5">
-          {library[selectedCategory] ? (
-            (console.log(library[selectedCategory]),
-            (<ShowCategoryComp callbackFunction={handleDeleteCard} categoryArray={library[selectedCategory]} />))
-          ) : (
-            <p className="text-center">Nessun libro disponibile per questo genere.</p>
-          )}
-        </Row>
+        {library[selectedCategory] ? (
+          (console.log(library[selectedCategory]),
+          (<ShowCategoryComp callbackFunction={handleDeleteCard} categoryArray={library[selectedCategory]} />))
+        ) : (
+          <p className="text-center">Nessun libro disponibile per questo genere.</p>
+        )}
       </Container>
     </>
   );
