@@ -8,6 +8,7 @@ import history from "../data/history.json";
 import horror from "../data/horror.json";
 import romance from "../data/romance.json";
 import scifi from "../data/scifi.json";
+import ShowCategoryComp from "./ShowCategoryComp";
 
 const allCategories = {
   fantasy: fantasy,
@@ -42,11 +43,8 @@ function MyMain() {
       <Container>
         <Row className="gy-3 mb-5">
           {library[selectedCategory] ? (
-            library[selectedCategory].map((book, index) => (
-              <Col xs={6} md={4} xl={3} xxl={2} key={`cardBook-${index}`}>
-                <CardComp book={book} callbackFunction={handleDeleteCard} />
-              </Col>
-            ))
+            (console.log(library[selectedCategory]),
+            (<ShowCategoryComp callbackFunction={handleDeleteCard} categoryArray={library[selectedCategory]} />))
           ) : (
             <p className="text-center">Nessun libro disponibile per questo genere.</p>
           )}
