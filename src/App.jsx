@@ -4,12 +4,21 @@ import "./App.css";
 import MyHeader from "./components/MyHeader";
 import MyFooter from "./components/MyFooter";
 import MyMain from "./components/MyMain";
+import { useState } from "react";
+import { logDOM } from "@testing-library/react";
 
 function App() {
+  const [valueSearched, setValueSearched] = useState("");
+
+  function handleSearchSubmit(value) {
+    setValueSearched(value);
+    console.log(value);
+  }
+
   return (
     <>
-      <MyHeader />
-      <MyMain />
+      <MyHeader callbackSubmit={handleSearchSubmit} />
+      <MyMain valueToSearch={valueSearched} />
       <MyFooter />
     </>
   );

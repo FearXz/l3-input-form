@@ -5,11 +5,13 @@ import CardComp from "./CardComp";
 function ShowCategoryComp(props) {
   return (
     <Row className="gy-3 mb-5">
-      {props.categoryArray.map((book, index) => (
-        <Col xs={6} md={4} xl={3} xxl={2} key={`cardBook-${index}`}>
-          <CardComp book={book} callbackFunction={props.callbackFunction} />
-        </Col>
-      ))}
+      {props.categoryArray
+        .filter((book) => book.title.toLowerCase().includes(props.valueToSearch.toLowerCase()))
+        .map((book, index) => (
+          <Col xs={6} md={4} xl={3} xxl={2} key={`cardBook-${index}`}>
+            <CardComp book={book} callbackFunction={props.callbackFunction} />
+          </Col>
+        ))}
     </Row>
   );
 }

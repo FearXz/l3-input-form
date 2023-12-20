@@ -18,7 +18,7 @@ const allCategories = {
   scifi: scifi,
 };
 
-function MyMain() {
+function MyMain(props) {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [library, setLibrary] = useState(allCategories);
 
@@ -43,7 +43,13 @@ function MyMain() {
       <Container>
         {library[selectedCategory] ? (
           (console.log(library[selectedCategory]),
-          (<ShowCategoryComp callbackFunction={handleDeleteCard} categoryArray={library[selectedCategory]} />))
+          (
+            <ShowCategoryComp
+              valueToSearch={props.valueToSearch}
+              callbackFunction={handleDeleteCard}
+              categoryArray={library[selectedCategory]}
+            />
+          ))
         ) : (
           <p className="text-center">Nessun libro disponibile per questo genere.</p>
         )}

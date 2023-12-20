@@ -1,7 +1,18 @@
-import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Col, Container, Form, Nav, Navbar, Row } from "react-bootstrap";
 
-function NavbarComp() {
+function NavbarComp(props) {
+  const [valueSearched, setValueSearched] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    props.callbackSubmit(valueSearched);
+  }
+  function handleSearch(event) {
+    console.log(event.target.value);
+    setValueSearched(event.target.value);
+  }
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -14,6 +25,22 @@ function NavbarComp() {
             <Nav.Link href="#link">Browse</Nav.Link>
           </Nav>
         </Navbar.Collapse>
+        <Form inline onSubmit={handleSubmit}>
+          <Row>
+            <Col xs="auto">
+              <Form.Control
+                type="text"
+                placeholder="Search"
+                className=" mr-sm-2"
+                value={valueSearched}
+                onChange={handleSearch}
+              />
+            </Col>
+            <Col xs="auto">
+              <Button type="submit">Search</Button>
+            </Col>
+          </Row>
+        </Form>
       </Container>
     </Navbar>
   );
