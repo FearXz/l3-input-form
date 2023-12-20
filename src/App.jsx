@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <MyHeader callbackSubmit={handleSearchSubmit} />
-      <MyMain valueToSearch={valueSearched} />
+      <MyMain functionSubmit={handleSearchSubmit} valueToSearch={valueSearched} />
       <MyFooter />
     </>
   );

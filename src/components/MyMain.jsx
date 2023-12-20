@@ -25,6 +25,7 @@ function MyMain(props) {
   const handleCategoryButton = (categoryName) => {
     setSelectedCategory(categoryName);
     console.log(categoryName);
+    props.functionSubmit("");
   };
 
   const handleDeleteCard = (asin) => {
